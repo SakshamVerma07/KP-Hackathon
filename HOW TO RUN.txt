@@ -1,0 +1,16 @@
+Open two terminals in vs code, in one of the terminals run the following commands:
+cd backend
+python -m venv .venv
+./.venv/scripts/activate.ps1
+pip install -r requirements.txt
+flask db upgrade
+$env:FRONTEND_ORIGINS="http://localhost:5173,http://your-local-ip-address-found-using-ipconfig:5173"
+python run.py
+
+in the other terminal run
+cd frontend
+npm i
+npm audit fix --force
+npm run dev -- --host
+
+this will give u a ip address for the working of the webapp
