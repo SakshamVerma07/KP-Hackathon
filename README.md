@@ -12,52 +12,35 @@ experience to suit your style.
 
 ## ✨ Features
 
--   **Authenticated accounts** --- Register and log in to access your
-    account.
--   **Profiles and profile pictures** --- Personalise your identity.
--   **Group chats** --- Bring multiple people into one conversation.
--   **Image sharing** --- Share images directly in chats.
--   **Link sharing** --- Send links to websites and other online
-    resources.
--   **Message reactions** --- React to messages to express yourself
-    quickly.
--   **Message forwarding** --- Forward messages to another conversation
-    when supported by the app.
--   **Customisable themes** --- Adjust the app's appearance to your
-    preference.
--   **Real-time messaging** --- Designed around a responsive chat
-    experience using Socket.IO.
+- **Authenticated accounts** --- Register and log in to access your
+  account.
+- **Profiles and profile pictures** --- Personalise your identity.
+- **Group chats** --- Bring multiple people into one conversation.
+- **Image sharing** --- Share images directly in chats.
+- **Link sharing** --- Send links to websites and other online
+  resources.
+- **Message reactions** --- React to messages to express yourself
+  quickly.
+- **Message forwarding** --- Forward messages to another conversation
+  when supported by the app.
+- **Customisable themes** --- Adjust the app's appearance to your
+  preference.
+- **Real-time messaging** --- Designed around a responsive chat
+  experience using Socket.IO.
 
 ## 🧰 Tech Stack
 
 The project uses the following technologies:
 
-  Technology   Purpose
-  ------------ -----------------------------------
-  React        Frontend user interface
-  Flask        Backend API and application logic
-  Socket.IO    Real-time communication
-  Python       Backend runtime
-  JavaScript   Frontend application logic
+Technology Purpose
 
-Update this list if your current implementation uses additional
-libraries, databases, storage providers, or deployment services.
+---
 
-## 🗂️ Project Structure
-
-The exact layout may vary by version. A typical React + Flask setup
-looks like this:
-
-``` text
-Commonroom/
-├── frontend/          # React application
-├── backend/           # Flask API and Socket.IO server
-├── README.md
-└── ...
-```
-
-If your repository uses different folder names, replace this example
-with the actual structure.
+React Frontend user interface
+Flask Backend API and application logic
+Socket.IO Real-time communication
+Python Backend runtime
+JavaScript Frontend application logic
 
 ## 🚀 Getting Started
 
@@ -65,15 +48,15 @@ with the actual structure.
 
 Install the tools required by your project:
 
--   Python 3
--   Node.js and npm
--   Git (recommended)
+- Python 3
+- Node.js and npm
+- Git (recommended)
 
 ### 1. Get the project
 
 Clone the repository, or download and extract the project files.
 
-``` bash
+```bash
 git clone <your-repository-url>
 cd Commonroom
 ```
@@ -85,7 +68,7 @@ have the project locally, open a terminal in its root directory instead.
 
 Move into the backend directory (adjust the path to match your project):
 
-``` bash
+```bash
 cd backend
 ```
 
@@ -93,67 +76,62 @@ Create and activate a Python virtual environment.
 
 **Windows (PowerShell):**
 
-``` powershell
+```powershell
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
 ```
 
 **macOS / Linux:**
 
-``` bash
+```bash
 python3 -m venv .venv
 source .venv/bin/activate
 ```
 
-Install the backend dependencies. If the project includes a
-`requirements.txt` file:
-
-``` bash
+```bash
 pip install -r requirements.txt
 ```
 
-Configure the environment variables required by your implementation,
-then start the Flask server using the entry point documented in your
-project. For example, if your entry point is `app.py`:
+```bash
+$env:FRONTEND_ORIGINS="http://localhost:5173,http://your-local-ip-address-found-using-ipconfig:5173"
+```
 
-``` bash
-python app.py
+```bash
+flask db upgrade
+```
+
+```bash
+python run.py
 ```
 
 ### 3. Set up the frontend
 
 Open a **second terminal** and move into the frontend directory:
 
-``` bash
+```bash
 cd frontend
 npm install
+npm audit fix --force
 npm run dev
 ```
-
-Use the script that exists in your `package.json`. Some React projects
-use `npm start` rather than `npm run dev`.
 
 ### 4. Open Commonroom
 
 Open the local frontend URL printed by the development server in your
-browser. Confirm that the frontend's API and Socket.IO configuration
-points to the correct backend address and port.
-
-> **Note:** The commands and folder names above are a template. Use the
-> actual entry point, scripts, and directory names in your repository.
+browser.
 
 ## ⚙️ Configuration
 
 Keep machine-specific settings and secrets out of committed source code.
 Depending on your implementation, configuration may include:
 
--   Backend host and port
--   Frontend API base URL
--   Socket.IO server URL
--   Database connection settings
--   Authentication/session secret
--   Allowed frontend origins
--   Upload/storage settings
+- Backend host and port
+- Frontend API base URL
+- Socket.IO server URL
+- Database connection settings
+- Authentication/session secret
+- Allowed frontend origins
+- Upload/storage settings
 
 Use environment variables or a local `.env` file if your application
 supports them. Add secret files to `.gitignore`, and provide a
@@ -162,38 +140,13 @@ credentials.
 
 Example placeholder configuration (rename variables to match your code):
 
-``` env
+```env
 # Example only — use the variable names expected by your app.
 SECRET_KEY=replace-with-a-long-random-secret
 FRONTEND_ORIGIN=http://localhost:5173
 ```
 
 Never commit passwords, API keys, production secrets, or real user data.
-
-## 🔐 Security Notes
-
-Commonroom includes an authenticated registration and login flow. For a
-safer deployment:
-
--   Hash passwords with a suitable password-hashing library; never store
-    plaintext passwords.
--   Keep secret keys and database credentials out of source control.
--   Validate and authorise requests on the server, not only in the
-    frontend.
--   Configure CORS to allow only the frontend origins you actually use.
--   Apply appropriate authentication and authorisation checks to
-    Socket.IO connections and events.
--   Validate uploaded files, restrict file types and sizes, and store
-    uploads safely.
--   Use HTTPS in production and configure cookies/session settings
-    appropriately.
--   Avoid exposing private message content or sensitive account details
-    in logs.
--   Add rate limiting and abuse protections to authentication endpoints
-    where appropriate.
-
-These are deployment recommendations, not a claim that every item is
-already implemented.
 
 ## 🖥️ Local Network Access
 
@@ -216,57 +169,56 @@ deploy behind a production-ready server and use HTTPS.
 
 ### Frontend loads, but login or API calls fail
 
--   Check that the Flask backend is running.
--   Check the API base URL configured in the frontend.
--   Inspect the browser's Developer Tools **Network** and **Console**
-    tabs.
--   Verify that the backend allows the frontend origin through CORS.
--   Review backend logs for the exact response and traceback.
+- Check that the Flask backend is running.
+- Check the API base URL configured in the frontend.
+- Inspect the browser's Developer Tools **Network** and **Console**
+  tabs.
+- Verify that the backend allows the frontend origin through CORS.
+- Review backend logs for the exact response and traceback.
 
 ### `Origin not allowed` or CORS errors
 
--   Compare the browser's frontend origin (scheme, hostname, and port)
-    with the backend's allowed-origin configuration.
--   Allow only the required development origins.
--   Check both Flask-CORS and Socket.IO CORS settings if both are used.
--   Restart the backend after configuration changes.
+- Compare the browser's frontend origin (scheme, hostname, and port)
+  with the backend's allowed-origin configuration.
+- Allow only the required development origins.
+- Check both Flask-CORS and Socket.IO CORS settings if both are used.
+- Restart the backend after configuration changes.
 
 ### `401 Unauthorized`
 
--   Confirm that login succeeds and the frontend sends the expected
-    session cookie or authentication token.
--   Check cookie, credential, and token handling in the frontend and
-    backend.
--   Verify that protected routes use the same authentication approach as
-    the login flow.
+- Confirm that login succeeds and the frontend sends the expected
+  session cookie or authentication token.
+- Check cookie, credential, and token handling in the frontend and
+  backend.
+- Verify that protected routes use the same authentication approach as
+  the login flow.
 
 ### `403 Forbidden`
 
--   Check backend authorisation rules, CSRF protections if enabled, and
-    any origin checks.
--   Review the server response body and logs to identify which check
-    rejected the request.
+- Check backend authorisation rules, CSRF protections if enabled, and
+  any origin checks.
+- Review the server response body and logs to identify which check
+  rejected the request.
 
 ### Real-time messages do not arrive
 
--   Confirm the Socket.IO server URL and port.
--   Check the browser Network tab for the Socket.IO connection and
-    handshake.
--   Verify that the connection is authenticated if required and that
-    event names match on both sides.
+- Confirm the Socket.IO server URL and port.
+- Check the browser Network tab for the Socket.IO connection and
+  handshake.
+- Verify that the connection is authenticated if required and that
+  event names match on both sides.
 
 ## 🛣️ Possible Future Improvements
 
 Depending on the goals of the project, future additions could include:
 
--   Read receipts and typing indicators
--   Online presence and last-seen status
--   Searchable chat history
--   Message editing and deletion
--   Notifications
--   Accessibility improvements and responsive mobile layouts
--   Automated tests and CI checks
--   Production deployment documentation
+- Read receipts
+- Searchable chat history
+- Message editing and deletion
+- Notifications
+- Accessibility improvements and responsive mobile layouts
+- Automated tests and CI checks
+- Production deployment documentation
 
 ## 🤝 Contributing
 
@@ -285,7 +237,7 @@ No license has been specified here. Add a `LICENSE` file and update this
 section before distributing the project. Without an explicit license,
 others may not have permission to reuse or redistribute the code.
 
-------------------------------------------------------------------------
+---
 
 Made with ❤️ for better conversations.
 
